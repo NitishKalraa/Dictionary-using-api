@@ -4,9 +4,11 @@ var font;
 var search;
 var submit;
 var result;
+var footer;
 function preload(){
   bg=loadImage('assets/bg.png');
   font=loadFont('assets/LemonMilk.otf');
+   footer=loadImage('assets/name.png');
 }
 function setup(){
 createCanvas(window.innerWidth,window.innerHeight);
@@ -42,6 +44,7 @@ createCanvas(window.innerWidth,window.innerHeight);
 }
 function draw(){
   background(bg);
+  image(footer,width-250,height-100,200,100);
   // header
 
   textFont(font);
