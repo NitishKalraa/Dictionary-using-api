@@ -57,10 +57,13 @@ function draw(){
 
   // fetching meaning from api
   submit.mousePressed(async()=>{
+  if(search.value()=="")
+    alert("ENTER A WORD");
+  else{  
   var fetching= await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+search.value());
   var respone=await fetching.json();
   result=respone[0].meanings[0].definitions[0].definition;  
-  });
+  }});
 
   // only to appear if the response is not null
   if(result!=null&&result!=""){
