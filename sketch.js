@@ -5,10 +5,11 @@ var search;
 var submit;
 var meaning,synonym;
 var footer;
+var res;//response
 function preload(){
   bg=loadImage('assets/bg.png');
   font=loadFont('assets/LemonMilk.otf');
-   footer=loadImage('assets/name.png');
+  footer=loadImage('assets/name.png');
 }
 function setup(){
 createCanvas(window.innerWidth,window.innerHeight);
@@ -56,34 +57,46 @@ function draw(){
   ellipse(width/2-108,140,20,20);
 
   // fetching meaning from api
+ 
   submit.mousePressed(async()=>{
-  if(search.value()=="")
-    alert("ENTER A WORD");
-  else{  
-  var fetching= await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+search.value());
-  var res=await fetching.json();
-  meaning=res[0].meanings[0].definitions[0].definition;
-  synonym=res[0].meanings[1].defintions[0].synonyms;  
+  if(search.value()==""){
+
+  alert("enter something")
+
+  }else{  
+
+   var fetching= await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+search.value());
+   res=await fetching.json();
+   meaning=res[0].meanings[0].definitions[0].definition;
+   synonym=res[0].meanings[1].definitions[0].synonyms;
+   console.log(synonym)
   }});
 
   // only to appear if the response is not null
-if(meaning!=null&&meaning!=""){
+  if(meaning!=null&&meaning!=""){
+
   textSize(20);
   text("MEANING :",40,submit.y+50);
   fill("whitesmoke");
+
   if(meaning.length>80){  
+
   var temp1=meaning.slice(0,80);
   var temp2=meaning.slice(80,meaning.length);  
   text(temp1,20,submit.y+100);
   text(temp2,20,submit.y+150);
+
   }else{
+
     text(meaning,20,submit.y+100);
-   }
-  fill("navy");
-  text("SYNONYMS :",40,540) 
-  for(var i=0;i<synonym.length;i++){
+
+    }
+   fill("navy");
+   text("SYNONYMS :",40,540) 
+   for(var i=0;i<synonym.length;i++){
     fill("orange");
     text("🔴 "+synonym[i],50,submit.y+250+i*30); 
-    }
   }
+ }
 }
+
