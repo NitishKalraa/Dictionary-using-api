@@ -3,7 +3,7 @@ var bg;
 var font;
 var search;
 var submit;
-var result;
+var meaning,synonym;
 var footer;
 function preload(){
   bg=loadImage('assets/bg.png');
@@ -61,22 +61,29 @@ function draw(){
     alert("ENTER A WORD");
   else{  
   var fetching= await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+search.value());
-  var respone=await fetching.json();
-  result=respone[0].meanings[0].definitions[0].definition;  
+  var res=await fetching.json();
+  meaning=res[0].meanings[0].definitions[0].definition;
+  synonym=res[0].meanings[1].defintions[0].synonyms;  
   }});
 
   // only to appear if the response is not null
-if(result!=null&&result!=""){
+if(meaning!=null&&meaning!=""){
   textSize(20);
   text("MEANING :",40,submit.y+50);
   fill("whitesmoke");
-  if(result.length>80){  
-  var temp1=result.slice(0,80);
-  var temp2=result.slice(80,result.length);  
+  if(meaning.length>80){  
+  var temp1=meaning.slice(0,80);
+  var temp2=meaning.slice(80,meaning.length);  
   text(temp1,20,submit.y+100);
   text(temp2,20,submit.y+150);
   }else{
-    text(result,20,submit.y+100)
-  }
+    text(meaning,20,submit.y+100);
+   }
+  fill("navy");
+  text("SYNONYMS :",40,540) 
+  for(var i=0;i<synonym.length;i++){
+    fill("orange");
+    text("🔴 "+synonym[i],50,submit.y+250+i*30); 
+    }
   }
 }
