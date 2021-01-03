@@ -66,9 +66,17 @@ function draw(){
   }});
 
   // only to appear if the response is not null
-  if(result!=null&&result!=""){
+if(result!=null&&result!=""){
   textSize(20);
-  fill("whitesmoke")  
-  text(result,submit.x-250,submit.y+100);
+  text("MEANING :",40,submit.y+50);
+  fill("whitesmoke");
+  if(result.length>80){  
+  var temp1=result.slice(0,80);
+  var temp2=result.slice(80,result.length);  
+  text(temp1,20,submit.y+100);
+  text(temp2,20,submit.y+150);
+  }else{
+    text(result,20,submit.y+100)
+  }
   }
 }
