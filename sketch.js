@@ -61,7 +61,7 @@ function draw(){
   submit.mousePressed(async()=>{
   if(search.value()==""){
 
-  alert("enter something")
+  alert("enter something");
 
   }else{  
 
@@ -69,7 +69,6 @@ function draw(){
    res=await fetching.json();
    meaning=res[0].meanings[0].definitions[0].definition;
    synonym=res[0].meanings[1].definitions[0].synonyms;
-   console.log(synonym)
   }});
 
   // only to appear if the response is not null
@@ -92,7 +91,7 @@ function draw(){
 
     }
    fill("navy");
-   text("SYNONYMS :",40,540) 
+   text("SYNONYMS :",40,540); 
    for(var i=0;i<synonym.length;i++){
     fill("orange");
     text("🔴 "+synonym[i],50,submit.y+250+i*30); 
