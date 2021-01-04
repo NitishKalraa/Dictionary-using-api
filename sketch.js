@@ -91,7 +91,7 @@ function draw(){
 
     }
    fill("navy");
-   text("SYNONYMS :",40,540); 
+   text("SYNONYMS :",40,submit.y+200); 
    for(var i=0;i<synonym.length;i++){
     fill("orange");
     text("🔴 "+synonym[i],50,submit.y+250+i*30); 
