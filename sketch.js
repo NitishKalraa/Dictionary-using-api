@@ -51,10 +51,10 @@ function draw(){
   textFont(font);
   textSize(60);
   fill("crimson");
-  text("Dictionary",width/2-150,200);
+  text("Dictionary",width/2-150,height/2-300);
   fill("yellow");
   noStroke();
-  ellipse(width/2-108,140,20,20);
+  ellipse(width/2-108,height/2-370,20,20);
 
   // fetching meaning from api
  
