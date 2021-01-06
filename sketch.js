@@ -17,7 +17,7 @@ createCanvas(window.innerWidth,window.innerHeight);
 // creating search box
 
  search=createInput();
- search.position(width/2-100,height/2-210);
+ search.position(width/2-100,height/4);
 
 //  styling the search box
 
@@ -30,7 +30,7 @@ createCanvas(window.innerWidth,window.innerHeight);
 //  submit button
 
  submit=createButton("Submit");
- submit.position(width/2-40,height/2-150);
+ submit.position(width/2-40,search.y+80);
 
 //  styling the button
 
@@ -51,10 +51,10 @@ function draw(){
   textFont(font);
   textSize(60);
   fill("crimson");
-  text("Dictionary",width/2-150,height/2-300);
+  text("Dictionary",width/2-150,search.y-50);
   fill("yellow");
   noStroke();
-  ellipse(width/2-108,height/2-370,20,20);
+  ellipse(width/2-108,search.y-110,20,20);
 
   // fetching meaning from api
  
