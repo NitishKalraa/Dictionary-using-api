@@ -1,4 +1,6 @@
 // mam try resizing the browser and refresh it its auto adjustable
+// branching
+// done chnages
 var bg;
 var font;
 var search;
