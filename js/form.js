@@ -18,7 +18,7 @@ class Form {
   }
 
   display() {
-    image(footer, width - 250, height - 100, 200, 100);
+    image(logo, width-200, height-110,200, 100);
 
     this.submit.position(width / 2 - 40, this.search.y + 80);
     this.search.position(width / 2 - 100, height / 4);
