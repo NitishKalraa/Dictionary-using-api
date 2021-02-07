@@ -18,7 +18,6 @@ class Form {
   }
 
   display() {
-    image(logo, width-200, height-110,200, 100);
 
     this.submit.position(width / 2 - 40, this.search.y + 80);
     this.search.position(width / 2 - 100, height / 4);
@@ -50,8 +49,9 @@ class Form {
     // only to appear if the response is not null
     if (meaning != null && meaning != "") {
       textSize(20);
+      fill(255);
       text("MEANING :", 40, this.submit.y + 50);
-      fill("whitesmoke");
+      fill("khaki");
 
       if (meaning.length > 80) {
         var temp1 = meaning.slice(0, 80);
@@ -64,7 +64,7 @@ class Form {
       fill("navy");
       text("SYNONYMS :", 40, this.submit.y + 200);
       for (var i = 0; i < synonym.length; i++) {
-        fill("orange");
+        fill("crimson");
         text("🔴 " + synonym[i], 50, this.submit.y + 250 + i * 30);
       }
     }

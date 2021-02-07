@@ -1,14 +1,12 @@
 var bg;
 var font;
 var meaning, synonym;
-var logo;
 var res;
 var form;
 
 function preload() {
   bg = loadImage("images/bg.png");
   font = loadFont("font/LemonMilk.otf");
-  logo = loadImage("images/logo.png");
 }
 function setup() {
   createCanvas(innerWidth, innerHeight);
